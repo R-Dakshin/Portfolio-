@@ -5,192 +5,224 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dakshin R | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-
+  <link rel="stylesheet" href="Style.css">
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid min-vh-100">
     <div class="main">
 
       <!-- Navigation -->
-      <div class="nav">
-        <ul class="Navlist">
-          <li id="Dakshin">Dakshin R</li>
-          <ul class="nav_s">
-            <li class="hover"><a href="#about" style="text-decoration:none">About Me</a></li>
-            <li class="hover"><a href="#experience" style="text-decoration:none">Experience</a></li>
-            <li class="hover"><a href="#projects" style="text-decoration:none">Projects</a></li>
-            <li class="hover"><a href="#skills" style="text-decoration:none">Skills</a></li>
-            <li class="hover"><a href="#contact" style="text-decoration:none">Contact</a></li>
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Dakshin R</a>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link hover" href="#about">About Me</a></li>
+            <li class="nav-item"><a class="nav-link hover" href="#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link hover" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link hover" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link hover" href="#contact">Contact</a></li>
           </ul>
-        </ul>
-      </div>
+        </div>
+      </nav>
 
-      <!-- Hero / Banner -->
-      <div class="banner">
-        <div class="intro">
-          <h1 id="me">Hi, I'm Dakshin 👋</h1>
-          <h3 id="detail">
+      <!-- Banner -->
+      <section class="banner row align-items-center">
+        <div class="col-md-7">
+          <h1>Hi, I'm Dakshin <span class="wave">👋</span></h1>
+          <p id="detail" class="lead">
             A tech designer, analyst, and innovator from Chennai, India.<br>
             I love building intuitive solutions, leading communities, and exploring new technologies.
-          </h3>
-          <br>
-          <div class="icon">
-            <a href="https://linkedin.com/in/dakshin-r-b8803528b"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/R-Dakshin"><i class="fa-brands fa-github"></i></a>
-          </div>
+          </p>
+          <a href="https://linkedin.com/" class="icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/" class="icon" target="_blank"><i class="fab fa-github"></i></a>
         </div>
-        <div class="photo">
-          <img src="profile.jpg" alt="Dakshin R" class="profile">
+        <div class="col-md-5 text-center">
+          <img src="profile.jpg" alt="Profile" class="profile img-fluid rounded-circle shadow">
         </div>
-      </div>
+      </section>
 
-      <!-- About -->
-      <div class="about" id="about">
-        <h1>About Me</h1>
+      <hr>
+
+      <!-- About Me -->
+      <section id="about" class="about mb-4">
+        <h2>About Me</h2>
         <p>
-          I’m <b>Dakshin R</b>, a Tech Designer, Analyst & Innovator from Chennai, India, driven by solving complex problems through a blend of design thinking and data-driven insights. With hands-on experience in business analysis and proficiency in full-stack technologies, I specialize in creating intuitive user experiences, optimizing processes, and bringing ideas from concept to reality.
+          I’m <strong>Dakshin R</strong>, a Tech Designer, Analyst & Innovator from Chennai, India.
+          I thrive in cross-functional environments — collaborating with engineers, leading marketing, or aligning strategy with design. <br>
+          <b>Strengths:</b> UI/UX design, prototype development, ML & analysis (Figma, Python, React).
         </p>
         <p>
-          I thrive in cross-functional environments — whether it’s collaborating with engineers, leading marketing efforts, or aligning strategy with design. My areas of strength include UI/UX design, prototype development, machine learning & analysis, and leveraging tools like Figma, Python, and React to build polished solutions.
+          <div><b>Languages:</b> English, Hindi, Tamil, Malayalam &nbsp;</div>
+          <div><b>Hobbies:</b> Trekking, Mechanics, Cricket, Coding &nbsp;</div>
+          <div><b>Fun Fact:</b> I once designed 1000+ custom stickers for a startup!</div>
         </p>
-        <p>
-          Passionate about knowledge-sharing, I contribute to communities, mentor peers, and love exploring emerging tech — from crowd-counting neural networks to sentiment analysis models. Outside code and design, I enjoy trekking, mechanics, cricket, and have even designed over <b>1000+ custom stickers</b> for a startup.
-        </p>
-        <ul>
-          <li><b>Languages:</b> English, Hindi, Tamil, Malayalam</li>
-          <li><b>Hobbies:</b> Trekking, Mechanics, Cricket, Coding</li>
-          <li><b>Fun Fact:</b> I once designed 1000+ custom stickers for a startup!</li>
-        </ul>
-      </div>
+      </section>
 
-      <style>
-        .about {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 1s ease, transform 1s ease;
-        }
-        .about.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      </style>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const about = document.querySelector(".about");
-
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  about.classList.add("visible");
-                }
-              });
-            },
-            { threshold: 0.2 }
-          );
-
-          observer.observe(about);
-        });
-      </script>
-
+      <hr>
 
       <!-- Education -->
-      <div class="education">
-        <h1>Education</h1>
-        <img class="skill" src="vit.png" alt="VIT Chennai" style="height: 80px;">
-        <h3 class="skill">VIT Chennai</h3>
-        <h4 class="skill" style="font-size: 15px;">Integrated Undergraduate Program</h4>
-      </div>
+      <section class="education mb-4">
+        <h2>Education</h2>
+        <div class="d-flex align-items-center">
+          <img src="vit.png" alt="VIT" height="80" class="me-3">
+          <div>
+            <h4>VIT Chennai</h4>
+            <p>Integrated Undergraduate Program</p>
+            <p>CGPA of <b>8.72</b></p>
+          </div>
+        </div>
+      </section>
 
-      <!-- Experience -->
-      <h1 id="experience">Experience</h1>
-      <div class="experiences">
-        <div class="Card">
-          <div class="card" style="width: 18rem;">
-            <img src="citaa.jpeg" class="card-img-top" alt="Cittaa">
-            <div class="card-body">
-              <h5 class="card-title">Business Analyst – Cittaa</h5>
-              <p class="card-text">Analyzed business processes, gathered requirements, and contributed to strategic decision-making during my internship.</p>
+      <hr>
+
+      <!-- Work Experience -->
+      <section id="experience" class="experiences mb-4">
+        <h2>Work Experience</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-body">
+                <img src="https://dummyimage.com/40x40/7960f2/fff&text=C" alt="Cittaa" class="me-2" style="height:40px;">
+                <h5 class="card-title mb-1">Business Analyst – Cittaa</h5>
+                <p class="card-text small">Analyzed business processes, gathered requirements, and contributed to strategic decision-making during my internship.</p>
+              </div>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <img src="upcoming.webp" class="card-img-top" alt="Upcoming Engineer">
-            <div class="card-body">
-              <h5 class="card-title">Marketing Head – Upcoming Engineer</h5>
-              <p class="card-text">Led digital marketing campaigns, content strategy, and community outreach for technical events and publications.</p>
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-body">
+                <img src="https://dummyimage.com/40x40/2bdaeb/fff&text=U" alt="Upcoming Engineer" class="me-2" style="height:40px;">
+                <h5 class="card-title mb-1">Marketing Head – Upcoming Engineer</h5>
+                <p class="card-text small">Led digital marketing campaigns, content strategy, and community outreach for technical events and publications.</p>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+<hr>
+
+<!-- Leadership & Responsibilities -->
+<section id="leadership" class="experiences mb-4">
+  <h2>Leadership & Responsibilities</h2>
+  <div class="row">
+    <!-- President -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-3 h-100">
+        <div class="card-body d-flex">
+          <img src="https://dummyimage.com/40x40/6f8cff/fff&text=P" alt="President" class="me-3" style="height:40px;">
+          <div>
+            <h5 class="card-title mb-1">President,Codechef VITC</h5>
+            <p class="card-text small mb-0">Oversaw club operations, orchestrated large-scale events, and guided strategic growth for a 300+ member organization</p>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <!-- Design Lead – TEDx VITC -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-3 h-100">
+        <div class="card-body d-flex">
+          <img src="https://dummyimage.com/40x40/f97bb5/fff&text=DX" alt="TEDx VITC" class="me-3" style="height:40px;">
+          <div>
+            <h5 class="card-title mb-1">Design Lead, TEDx VITC</h5>
+            <p class="card-text small mb-0">Directed event branding, visual systems, and cross-platform design assets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Program Representative -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-3 h-100">
+        <div class="card-body d-flex">
+          <img src="https://dummyimage.com/40x40/7960f2/fff&text=PR" alt="Program Representative" class="me-3" style="height:40px;">
+          <div>
+            <h5 class="card-title mb-1">Program Representative</h5>
+            <p class="card-text small mb-0">
+              M.Tech (Integrated) CSE, specialization in Business Analytics — coordinated academics and student feedback.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <hr>
 
       <!-- Projects -->
-      <h1 id="projects">Projects</h1>
-      <div class="projects">
-        <div class="Card">
-          <div class="card" style="width: 18rem;">
-            <img src="constiquest.png" class="card-img-top" alt="Consti Quest">
-            <div class="card-body">
-              <h5 class="card-title">Consti Quest</h5>
-              <p class="card-text">A gamified platform to spread constitutional literacy by simplifying the Indian Constitution into interactive quests.</p>
+      <section id="projects" class="projects mb-4">
+        <h2>Projects</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Consti Quest</h5>
+                <p class="card-text">A gamified platform to spread constitutional literacy by simplifying the Indian Constitution into interactive quests.</p>
+              </div>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <img src="crowdcount.png" class="card-img-top" alt="Crowd Counting">
-            <div class="card-body">
-              <h5 class="card-title">Crowd Counting with CNN</h5>
-              <p class="card-text">Developed a PyTorch-based crowd counting system using ShanghaiTech dataset with VGG16 and custom loss functions.</p>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Crowd Counting with CNN</h5>
+                <p class="card-text">Developed a PyTorch-based crowd counting system using ShanghaiTech dataset with VGG16 and custom loss functions.</p>
+              </div>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <img src="sentiment.png" class="card-img-top" alt="Sentiment Analysis">
-            <div class="card-body">
-              <h5 class="card-title">Sentiment Analysis with XLNet</h5>
-              <p class="card-text">Built transformer and ML-based sentiment analysis models on Amazon reviews, achieving 91.25% accuracy.</p>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Sentiment Analysis with XLNet</h5>
+                <p class="card-text">Built transformer and ML-based sentiment analysis models on Amazon reviews, achieving 91.25% accuracy.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <hr>
 
       <!-- Skills -->
-      <h1 id="skills">Skills</h1>
-      <div class="Proficiency">
-        <h5>Frontend Development</h5>
-        <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
-        <h5>Backend Development</h5>
-        <div class="progress"><div class="progress-bar" style="width: 50%"></div></div>
-        <h5>Python, Java, C</h5>
-        <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
-        <h5>UI/UX & Design</h5>
-        <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
-        <h5>Data Analysis</h5>
-        <div class="progress"><div class="progress-bar" style="width: 75%"></div></div>
-      </div>
+      <section id="skills" class="skills mb-4">
+        <h2>Skills</h2>
+        <div>
+          <b>Data Analysis</b>
+          <div class="progress mb-3"><div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div></div>
+          <b>Python, Java, C</b>
+          <div class="progress mb-3"><div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div></div>
+          <b>UI/UX & Design</b>
+          <div class="progress mb-3"><div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div></div>
+          <b>Frontend Development</b>
+          <div class="progress mb-3"><div class="progress-bar bg-primary" role="progressbar" style="width: 40%"></div></div>
+          <b>Backend Development</b>
+          <div class="progress mb-3"><div class="progress-bar bg-primary" role="progressbar" style="width: 70%"></div></div>
+        </div>
+      </section>
+
+      <hr>
 
       <!-- Contact -->
-      <h1 id="contact">Contact Me</h1>
-      <div class="contact">
-        <h4>Let’s connect! Reach me through any of these platforms:</h4>
-        <div class="icon">
-          <a href="https://linkedin.com/in/dakshin-r-b8803528b"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/R-Dakshin"><i class="fa-brands fa-github"></i></a>
-          <a href="mailto:rdakshin7@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-          <a href="tel:+916369155706"><i class="fa-solid fa-phone"></i></a>
+      <section id="contact" class="contact py-3 text-center">
+        <h2>Contact Me</h2>
+        <p>Let's connect! Reach me through any of these platforms:</p>
+        <div>
+          <a href="https://linkedin.com/" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/" target="_blank" class="icon"><i class="fab fa-github"></i></a>
+          <a href="mailto:hello@example.com" class="icon"><i class="fa fa-envelope"></i></a>
+          <a href="tel:+911234567890" class="icon"><i class="fa fa-phone"></i></a>
         </div>
-      </div>
+      </section>
 
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
