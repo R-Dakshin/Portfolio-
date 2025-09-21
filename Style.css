@@ -141,3 +141,130 @@ hr {
     height: 110px;
   }
 }
+
+.skill-card {
+  position: relative;
+  background: #fafaff;
+  border-radius: 12px;
+  padding: 14px 16px 12px 16px;
+  box-shadow: 0 1px 8px rgba(120,79,240,0.10);
+  transition: transform .18s ease, box-shadow .22s ease;
+  overflow: hidden;
+}
+.skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(110,79,247,0.15);
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.badge-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(121,96,242,0.08);
+}
+
+/* Hover panel */
+.skill-hover {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(2px);
+  border-top: 1px solid rgba(121,96,242,0.15);
+  transform: translateY(102%);
+  transition: transform .22s ease;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 6px 14px;
+  font-size: 0.95rem;
+}
+.skill-card:hover .skill-hover,
+.skill-card:focus-within .skill-hover,
+.skill-card.active .skill-hover {
+  transform: translateY(0%);
+}
+
+.skill-hover span {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: #f2f1ff;
+  color: #3a2e7a;
+  border: 1px solid #ebe9fa;
+}
+
+/* Make progress bars sit above the hover panel and look crisp */
+.skill-card .progress {
+  height: 18px;
+  border-radius: 9px;
+  background: #ebe9fa;
+  margin-bottom: 6px !important;
+}
+.skill-card .progress-bar {
+  background-image: linear-gradient(to right,#7960f2, #8f7deb);
+}
+
+/* Touch devices: show hover panel on tap */
+@media (hover: none) and (pointer: coarse) {
+  .skill-hover { position: static; transform: none; border: 0; background: transparent; padding: 6px 0 0 0; }
+  .skill-hover span { background: #f7f6ff; }
+}
+
+/* Polished skill hover chips */
+.skill-card{
+  position:relative;background:#fafaff;border-radius:14px;
+  padding:14px 16px 12px;box-shadow:0 1px 8px rgba(120,79,240,.10);
+  transition:transform .16s ease, box-shadow .22s ease;overflow:visible
+}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(110,79,247,.15)}
+.skill-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.skill-title{font-weight:700}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:10px;
+  box-shadow:0 0 0 3px rgba(121,96,242,.08)}
+.hint{font-size:.85rem;color:#7d78a8;opacity:.8}
+
+.bar-caption{font-size:.85rem;color:#6b67a0;margin-top:2px}
+
+/* Floating panel */
+.skill-panel{
+  position:absolute;left:16px;right:16px;bottom:56px; /* sits above progress */
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(250,248,255,.96));
+  border:1px solid #ebe9fa;border-radius:12px;padding:10px 10px 8px;
+  box-shadow:0 14px 36px rgba(78,58,190,.18), 0 6px 16px rgba(78,58,190,.08);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px 10px;
+  opacity:0;transform:translateY(8px) scale(.98);pointer-events:none;transition:
+  opacity .18s ease, transform .22s cubic-bezier(.22,.61,.36,1)
+}
+.skill-card:hover .skill-panel{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+
+/* panel chips */
+.skill-panel .chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:10px;background:#f3f2ff;border:1px solid #e9e7fb;
+  color:#362a7c;font-size:.93rem;white-space:nowrap
+}
+.skill-panel .chip i{color:#7960f2}
+
+/* Arrow pointer */
+.skill-panel::after{
+  content:"";position:absolute;left:24px;bottom:-8px;width:16px;height:16px;
+  background:inherit;border-left:1px solid #ebe9fa;border-bottom:1px solid #ebe9fa;
+  transform:rotate(45deg);border-radius:0 0 3px 0
+}
+
+/* Prevent overflow near edges: flip position when near bottom */
+.skill-card.flip .skill-panel{bottom:auto;top:56px}
+.skill-card.flip .skill-panel::after{bottom:auto;top:-8px;transform:rotate(225deg)}
+
+/* Mobile: panel becomes inline, no float */
+@media (hover:none) and (pointer:coarse){
+  .skill-panel{position:static;opacity:1;transform:none;pointer-events:auto;margin-top:8px}
+  .skill-panel::after{display:none}
+}
